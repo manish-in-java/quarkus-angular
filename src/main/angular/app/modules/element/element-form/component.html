@@ -1,0 +1,28 @@
+<h2>New Element</h2>
+<hr />
+<form [formGroup]="elementForm">
+  <div class="m-2 row">
+    <div class="col-md">
+      <input autofocus="autofocus" class="form-control" max="118" min="1" placeholder="Atomic Number" type="number" formControlName="number" />
+    </div>
+    <div class="col-md">
+      <input class="form-control" placeholder="Chemical Symbol" type="text" formControlName="symbol" />
+    </div>
+  </div>
+  <div class="m-2 row">
+    <div class="col-md">
+      <input class="form-control" placeholder="Chemical Name" type="text" formControlName="name" />
+    </div>
+    <div class="col-md">
+      <input class="form-control" max="294" min="1" placeholder="Atomic Weight" type="number" formControlName="weight" />
+    </div>
+  </div>
+  <div class="m-2 row">
+    <div class="col-md">
+      <button class="btn btn-primary" type="reset">Reset</button>
+    </div>
+    <div class="col-md">
+      <button class="btn btn-success float-right" (click)="add()">Add</button>
+    </div>
+  </div>
+</form>

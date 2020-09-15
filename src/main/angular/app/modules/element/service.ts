@@ -17,6 +17,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+/**
+ * Manages interactions with the server.
+ */
 @Injectable({ providedIn: "root" })
 export class ElementService {
   private static BASE_URL = "http://localhost:8080/elements";

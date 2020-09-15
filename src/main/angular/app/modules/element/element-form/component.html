@@ -3,18 +3,46 @@
 <form [formGroup]="elementForm">
   <div class="m-2 row">
     <div class="col-md">
-      <input autofocus="autofocus" class="form-control" max="118" min="1" placeholder="Atomic Number" type="number" formControlName="number" />
+      <input autofocus="autofocus"
+              class="form-control"
+              max="118"
+              min="1"
+              placeholder="Atomic Number"
+              required="required"
+              type="number"
+              formControlName="number"
+              [class.is-invalid]="number.invalid && number.touched" />
     </div>
     <div class="col-md">
-      <input class="form-control" placeholder="Chemical Symbol" type="text" formControlName="symbol" />
+      <input class="form-control"
+              maxlength="2"
+              minlength="1"
+              pattern="[A-Z][a-z]?"
+              placeholder="Chemical Symbol"
+              required="required"
+              type="text"
+              formControlName="symbol"
+              [class.is-invalid]="symbol.invalid && symbol.touched" />
     </div>
   </div>
   <div class="m-2 row">
     <div class="col-md">
-      <input class="form-control" placeholder="Chemical Name" type="text" formControlName="name" />
+      <input class="form-control"
+              placeholder="Chemical Name"
+              required="required"
+              type="text"
+              formControlName="name"
+              [class.is-invalid]="name.invalid && name.touched" />
     </div>
     <div class="col-md">
-      <input class="form-control" max="294" min="1" placeholder="Atomic Weight" type="number" formControlName="weight" />
+      <input class="form-control"
+              max="294"
+              min="1"
+              placeholder="Atomic Weight"
+              required="required"
+              type="number"
+              formControlName="weight"
+              [class.is-invalid]="weight.invalid && weight.touched" />
     </div>
   </div>
   <div class="m-2 row">
@@ -22,7 +50,9 @@
       <button class="btn btn-primary" type="reset">Reset</button>
     </div>
     <div class="col-md">
-      <button class="btn btn-success float-right" (click)="add()">Add</button>
+      <button class="btn btn-success float-right"
+              [disabled]="elementForm.invalid"
+              (click)="add()">Add</button>
     </div>
   </div>
 </form>

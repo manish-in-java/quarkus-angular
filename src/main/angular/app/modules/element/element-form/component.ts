@@ -35,4 +35,9 @@ export class ElementFormComponent {
   add() {
     this.addElement.emit();
   }
+
+  get name()   { return this.elementForm.get("name") }
+  get number() { return this.elementForm.get("number") }
+  get symbol() { return this.elementForm.get("symbol") }
+  get weight() { return this.elementForm.get("weight") }
 }

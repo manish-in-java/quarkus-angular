@@ -49,18 +49,20 @@ export class ElementListComponent implements OnInit {
    * Adds an element to the periodic table.
    */
   addElement() {
-    // Attempt to add an element based on the data available in the form.
-    this.service.save(this.elementForm.value).then(response => {
-      // Check whether the element exists already.
-      if (response
-        && response["number"]
-        && this.elements
-               .filter(element => element && element["number"] && element["number"] == response["number"])
-               .length == 0) {
-        // Add the element locally if it does not exist already.
-        this.elements = this.elements.concat([response]);
-      }
-    });
+    if (this.elementForm.valid) {
+      // Attempt to add an element based on the data available in the form.
+      this.service.save(this.elementForm.value).then(response => {
+        // Check whether the element exists already.
+        if (response
+          && response["number"]
+          && this.elements
+            .filter(element => element && element["number"] && element["number"] == response["number"])
+            .length == 0) {
+          // Add the element locally if it does not exist already.
+          this.elements = this.elements.concat([response]);
+        }
+      });
+    }
 
     this.elementForm.reset();
   }
